@@ -1,0 +1,12 @@
+package skillpages;
+
+public class skilllogin {
+	
+	@org.testng.annotations.Test
+	public void login() 
+	{
+	
+		System.out.println("This was Amazing Start");
+	}
+
+}

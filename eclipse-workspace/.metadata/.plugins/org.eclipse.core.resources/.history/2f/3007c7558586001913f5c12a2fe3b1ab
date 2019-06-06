@@ -1,0 +1,25 @@
+package SkillSwap;
+
+import org.testng.annotations.BeforeMethod;
+
+public class InvalidLogin extends SkillLogin {
+
+	@BeforeMethod
+	public void SkillsNavigate() {
+		
+		Navigate();
+		
+	}
+	
+	@Test
+	public void InvalidSignin() {
+		
+		
+		
+		
+	}
+	}
+	
+	
+	
+}

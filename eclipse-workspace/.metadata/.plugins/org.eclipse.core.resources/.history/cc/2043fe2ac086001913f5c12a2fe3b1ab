@@ -1,0 +1,12 @@
+import java.io.FileInputStream;
+import java.util.Properties;
+
+public class SkillBase {
+	
+	Properties prop=new Properties();
+	FileInputStream SkilData=new FileInputStream("C:\\Users\\Pras\\eclipse-workspace\\MarsProj\\src\\main\\resources\\SkillSwapResource.properties");
+	
+	
+	
+
+}

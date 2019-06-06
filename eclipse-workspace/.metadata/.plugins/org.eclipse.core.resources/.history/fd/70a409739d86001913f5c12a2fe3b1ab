@@ -1,0 +1,77 @@
+package SkillSwap;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ShareSkill {
+	
+	static WebDriver driver;
+	
+	
+    @Test
+	public void OpenBrowser() {
+		//Open the chrome browser.
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver();
+		
+		//Enter the Url.
+		driver.get("http://www.skillswap.pro");
+		
+		//Click on Signin.
+		driver.findElement(By.xpath("//a[@class='item']")).click();
+		
+		// Enter the Valid User name.
+		driver.findElement(By.xpath(" //input[@placeholder='Email address']")).sendKeys("pras.testanalyst@gmail.com");
+
+		// Enter the Valid Password.
+		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("mvp4444");
+
+		// Click on LogIn button.
+		driver.findElement(By.xpath("//button[@class='fluid ui teal button']")).click();
+		driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+		
+		
+	}
+    
+    @Test
+	public void ShareSkillClk() {
+		
+		// Click on the ShareSkill Button.
+    	driver.findElement(By.xpath("//a[@class='ui basic green button']")).click();
+        
+    	//Enter the Title.
+    	driver.findElement(By.xpath("//*[@name=\"title\"]")).sendKeys("EnterTitle");
+    	
+    	//Enter Description.
+    	driver.findElement(By.xpath("//*[@name=\"description\"]")).sendKeys("Enter the Description as you like here.");
+    	
+    	//Select the Category.and Subcategory
+    	Select Category= new Select(driver.findElement(By.xpath("//select[@name='categoryId']")));
+    	Category.selectByValue("6");
+    	
+    	Select subCategory=new Select(driver.findElement(By.xpath("//select[@name='subcategoryId']")));
+    	subCategory.selectByVisibleText("QA");
+    	
+    	
+    }    
+    
+    @AfterTest
+    public void CloseBrowser()
+    {
+    	//Close the Browser.
+    	driver.close();
+    
+    }
+    
+   
+    
+
+}

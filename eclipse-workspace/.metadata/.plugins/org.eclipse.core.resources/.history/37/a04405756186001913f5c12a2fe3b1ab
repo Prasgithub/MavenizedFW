@@ -1,0 +1,60 @@
+package SkillSwap;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class SkillLogin {
+
+	static WebDriver driver;
+	
+@BeforeMethod	
+public void Navigate() {
+	WebDriverManager.chromedriver().setup();
+	driver=new ChromeDriver();
+	driver.get("http://www.skillswap.pro");
+	driver.manage().window().maximize();
+}
+
+@Test
+public void ValidLogin() {
+	//Click on the SignIn button.
+	driver.findElement(By.xpath("//a[@class='item']")).click();
+	
+	//Enter the Valid Username.
+	driver.findElement(By.xpath(" //input[@placeholder='Email address']")).sendKeys("pras.testanalyst@gmail.com");
+	
+	//Enter the Valid Password.
+	driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("mvp4444");
+	
+	//Click on LogIn button.
+	driver.findElement(By.xpath("//button[@class='fluid ui teal button']")).click();
+	
+	
+	
+	
+}
+
+//@Test
+//public void InvalidLogin() {
+//	
+//	System.out.println("Enter InValid Login Details Here.");
+//	
+//}
+	
+	@AfterMethod
+	public void closeBrowser() {
+		//Close the browser window.
+		driver.close();
+		
+		
+	}
+	
+	
+	
+}

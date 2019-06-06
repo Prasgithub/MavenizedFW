@@ -1,0 +1,39 @@
+package testpanel;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver.SystemProperty;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import skillpages.skilllogin;
+
+public class ExeTest {
+//	From this class you test the scripts upon calling from the Object Repository files 
+//	from the SKILLPAGES PACKAGE
+
+	//you will navigate through the browser and define your webdriver here.
+	
+	static WebDriver driver;
+	
+	@BeforeTest
+	public void navigate()
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\SeleniumWork\\chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.get("http://www.skillswap.pro");
+		
+	}
+
+	@Test
+	public void login() {
+		
+		skilllogin sk=new skilllogin(driver);
+		sk.EnterEmail().sendKeys("pras.testanalyst@gmail.com");
+		
+		
+	}
+	
+	
+	
+}

@@ -1,0 +1,45 @@
+package skillpages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+public class skilllogin {
+	
+	//You will define your PAGEFACTORY from here.
+	
+	
+	public skilllogin(WebDriver driver)
+    {
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+	@FindBy(xpath="//a[@class='item']")
+	WebElement username;
+	
+	
+	
+	@Test
+	public WebElement EnterEmail() 
+	{
+	    return username;
+		
+	}
+	
+	// Click on the SignIn button.
+//			driver.findElement(By.xpath("//a[@class='item']")).click();
+//
+//			// Enter the Valid User name.
+//			driver.findElement(By.xpath(" //input[@placeholder='Email address']")).sendKeys("pras.testanalyst@gmail.com");
+//
+//			// Enter the Valid Password.
+//			driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("mvp4444");
+//
+//			// Click on LogIn button.
+//			driver.findElement(By.xpath("//button[@class='fluid ui teal button']")).click();
+//			driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
+
+}
